@@ -4,8 +4,8 @@ mysqli_select_db($conn,"infoii");
 
 $id_stud=$_REQUEST['int_stud'];
 $numen=$_REQUEST['numen'];
-$notabd=$_REQUEST['notabd'];
-$query="UPDATE infodb SET stud='$numen',nota_db='$notabd' WHERE id='$id_stud'";
+$datan=$_REQUEST['datan'];
+$query="UPDATE infodb SET stud='$numen',datan='$datan' WHERE id='$id_stud'";
 $checkresult = mysqli_query($conn,$query);
 if ($checkresult) {
 echo "Modificare efectuata";
