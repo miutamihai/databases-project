@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  apache:
+    build: .
+    volumes:
+      - ./src:/var/www/html/
+    container_name: apache
+    ports:
+      - '80:80'
+
+  mariadb:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    container_name: mariadb
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - '3306:3306'
+    environment:
+      MARIADB_ROOT_PASSWORD: ezcommit
